@@ -7,6 +7,26 @@ A [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server for **C
 
 The server runs as a local process and talks to Claude Desktop over standard input/output (stdio). It has no web server, no open ports and no database.
 
+## Why this MCP exists
+
+Consulting teams produce a steady stream of reports, proposals and meeting minutes, and keep their project files on a shared network drive. Using Claude for that work runs into four practical problems, which this server is built to solve:
+
+| Problem | How `sankalit-mcp` addresses it |
+|---|---|
+| **Claude cannot reach the team's shared drive reliably.** Claude Desktop starts MCP servers as background processes, which often cannot see a mapped drive letter such as `Z:`. | `SANKALIT_DRIVE_MAP` translates the drive letter to its network share, and `SANKALIT_WORKSPACE` sets exactly which folders are available. |
+| **Giving an AI broad file access is risky.** | Every file operation is resolved through one path check and limited to the configured workspace roots. Unsupported file types are rejected on create and read. |
+| **Documents written by an AI do not follow the company style.** Fonts, margins, cover page, header, footer and colors have to be fixed by hand afterwards. | Documents are built from templates driven by the Sankalit brand style guide: cover page, revision table, branded header and footer, heading and body styles, and "Page X of Y" fields. |
+| **Producing the final file takes several manual steps.** Without a tool, Claude drafts text, someone pastes it into Word, formats it and exports a PDF. | One `create_document` call writes the finished `.docx` or `.pdf` straight to its destination folder. |
+
+The brand rules also stay in step with the style guide: they are compiled from the guidelines PDF and handed to Claude (`get_brand_guidelines` and the `brand://instructions` resource), so the assistant knows the house style before it writes anything.
+
+**Typical uses**
+
+- "Create a technical report for this project in the `Reports` folder, using the standard template."
+- "Find last quarter's proposals on the shared drive and summarise them."
+- "Write a proposal from this brief and save it as a PDF."
+- "Move the signed-off drawings into the `Issued` folder."
+
 ## Features
 
 - Create `.txt`, `.md`, `.docx` and `.pdf` documents
