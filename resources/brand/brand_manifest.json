@@ -1,0 +1,66 @@
+{
+  "font_family": {
+    "confidence": 1.0,
+    "value": "Calibri"
+  },
+  "monospace_font": {
+    "confidence": 1.0,
+    "value": "Consolas"
+  },
+  "h1_size": {
+    "confidence": 0.95,
+    "value": 14
+  },
+  "h2_size": {
+    "confidence": 0.95,
+    "value": 12
+  },
+  "h3_size": {
+    "confidence": 0.95,
+    "value": 11
+  },
+  "top_margin": {
+    "confidence": 0.95,
+    "value": 25.0
+  },
+  "bottom_margin": {
+    "confidence": 0.95,
+    "value": 20.0
+  },
+  "left_margin": {
+    "confidence": 0.95,
+    "value": 25.0
+  },
+  "right_margin": {
+    "confidence": 0.95,
+    "value": 25.0
+  },
+  "primary_color": {
+    "confidence": 1.0,
+    "value": "#F5A623"
+  },
+  "secondary_color": {
+    "confidence": 1.0,
+    "value": "#F7C05A"
+  },
+  "line_spacing": {
+    "confidence": 0.8,
+    "value": 1.15
+  },
+  "logo_position": {
+    "confidence": 0.8,
+    "value": "top-left"
+  },
+  "logo_width_mm": {
+    "confidence": 0.8,
+    "value": 40
+  },
+  "caption_style": {
+    "confidence": 0.95,
+    "value": "italic"
+  },
+  "table_body_min_size": {
+    "confidence": 0.95,
+    "value": 10
+  }
+}
